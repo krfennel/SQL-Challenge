@@ -1,4 +1,3 @@
--- 1. List following details ....
 --
 /*
 select 
@@ -15,7 +14,7 @@ order by
     <list of fields>
 ;
 */
-
+-- 1. List employee number, last name, first name, sex, and salary.
 SELECT 
    employees.emp_no, 
    employees.last_name, 
@@ -27,7 +26,7 @@ FROM
      on employees.emp_no = salaries.emp_no
 ;
 
--- 2. List fn, ln, hiredate for employees heired in 1986
+-- 2. List first name, last name, and hire date for employees who were hired in 1986
 
 SELECT 
    employees.first_name, 
@@ -39,7 +38,7 @@ WHERE extract(year FROM employees.hire_date) = 1986
 ORDER BY employees.last_name, employees.first_name
 ;
 
-
+-- 3. List department number, department name, the manager's employee number, last name, first name.
 SELECT
 	departments.dept_no,
 	departments.dept_name,
@@ -55,7 +54,7 @@ FROM
 	department_manager.emp_no = employees.emp_no
 ;
 
--- 4. 	 
+-- 4. List employee number, last name, first name, and department name. 
 SELECT
 	employees.emp_no,
 	employees.last_name,
@@ -70,7 +69,7 @@ FROM
 	department_employee.dept_no = departments.dept_no
 ;
 
--- 5.
+-- 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 SELECT
 	employees.first_name,
 	employees.last_name,
@@ -83,7 +82,7 @@ FROM
 	employees.last_name LIKE 'B%'
 ;
 
--- 6.
+-- 6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
 SELECT
 	employees.emp_no,
 	employees.last_name,
@@ -102,7 +101,7 @@ FROM
 
 -- Select * from departments
 
--- 7.
+-- 7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 SELECT
 	employees.emp_no,
 	employees.last_name,
@@ -122,7 +121,7 @@ FROM
 	departments.dept_name IN ('Sales', 'Development')
 ;
 
--- 8.
+-- 8. List the frequency count of employee last names and in descending order
 SELECT
 	employees.last_name,
 	COUNT (employees.last_name) AS name_count
